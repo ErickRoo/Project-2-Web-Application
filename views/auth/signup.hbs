@@ -1,0 +1,28 @@
+<div>
+  <form action="/auth/signup" method="POST">
+    <label for="label-nickname">Apodo</label>
+    <input type="text" name="nickname" id="label-nickname">
+
+    <label for="label-name">Nombre</label>
+    <input type="text" name="name" id="label-name">
+
+    <label for="label-lastname">Apellido</label>
+    <input type="text" name="lastname" id="label-lastname">
+
+    <label for="label-email">Correo</label>
+    <input type="email" name="email" id="label-email">
+
+    <label for="label-password">Contraseña</label>
+    <input type="password" name="password" id="label-password">
+
+    <label for="label-category"> ¿Qué eres?
+      <select name="category" id="label-category">
+        <option value=""></option>
+        <option value="Creador">Creador</option>
+        <option value="Consumidor">Consumidor</option>
+      </select>
+    </label>
+
+    <button type="submit">Crear</button>
+  </form>
+</div>

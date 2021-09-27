@@ -6,19 +6,19 @@ const mongoose = require("mongoose");
 const beerSchema = mongoose.Schema({
   name: {
     type: String,
-    required: [true, "El nombre del producto es requerido"],
+    required: [true, "The beer's name is required"],
   },
   style: {
     type: String,
-    required: [true, "El estilo del producto es requerido"],
+    required: [true, "The beer's style is required"],
   },
   abv: {
     type: Number,
-    required: [true, "El ABV del producto es requerido"],
+    required: [true, "The beer's ABV is required"],
   },
   ibu: {
     type: Number,
-    required: [true, "El IBU del producto es requerido"],
+    required: [true, "The beer's IBU is required"],
   },
   description: {
     type: String,

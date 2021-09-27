@@ -8,32 +8,39 @@ exports.createUser = async (req, res) => {
 };
 
 exports.createUserForm = async (req, res) => {
-  // 1. OBTENER LOS DATOS DEL FORMULARIO
-  const { username, email, password } = req.body;
+  try {
+    // 1. OBTENER LOS DATOS DEL FORMULARIO
+    const { nickname, name, lastname, email, password, category } = req.body;
 
-  // 2. ENCRIPTACIÓN DE LA VARIABLE PASSWORD
+    // 2. ENCRIPTACIÓN DE LA VARIABLE PASSWORD
 
-  // ESTE ES LA BASE DE LA ENCRIPTACION
-  // $2a$10$H9jg8k0zOgo8346atEKSwu
-  const salt = await bcryptjs.genSalt(saltRounds);
+    // ESTE ES LA BASE DE LA ENCRIPTACION
+    // $2a$10$H9jg8k0zOgo8346atEKSwu
+    const salt = await bcryptjs.genSalt(saltRounds);
 
-  // MEZCLA DEL PASSWORD CON NUESTRA SALT
-  // ESTE PASSWORD NO PUEDE SER REVERSIBLE
-  const hashedPassword = await bcryptjs.hash(password, salt);
+    // MEZCLA DEL PASSWORD CON NUESTRA SALT
+    // ESTE PASSWORD NO PUEDE SER REVERSIBLE
+    const hashedPassword = await bcryptjs.hash(password, salt);
 
-  // 3. INSERTAR EL USUARIO, CON SU PASSWORD ENCRIPTADO, EN BASE DE DATOS
+    // 3. INSERTAR EL USUARIO, CON SU PASSWORD ENCRIPTADO, EN BASE DE DATOS
 
-  const newUser = await User.create({
-    username,
-    email,
-    passwordHash: hashedPassword,
-  });
+    const newUser = await User.create({
+      nickname,
+      name,
+      lastname,
+      email,
+      passwordHash: hashedPassword,
+      category,
+    });
 
-  console.log(newUser);
+    console.log(newUser);
 
-  // 4. RETORNAR UNA PÁGINA O UNA REDIRECCIÓN PARA QUE EL USUARIO SEPA QUE LO HIZO BIEN
-
-  res.redirect("/");
+    // 4. RETORNAR UNA PÁGINA O UNA REDIRECCIÓN PARA QUE EL USUARIO SEPA QUE LO HIZO BIEN
+    // res.alert("Usuario creado");
+    res.redirect("/");
+  } catch (error) {
+    console.log(`Hubo un error en signup: ${error}`);
+  }
 };
 
 exports.loginUser = async (req, res) => {
@@ -59,8 +66,7 @@ exports.loginUserForm = async (req, res) => {
     // SI EL USUARIO NO EXISTE..., ES MANDAR UN MENSAJE DE ERROR AL USUARIO
     if (!foundUser) {
       return res.render("auth/login", {
-        errorMessage:
-          "El usuario o la contraseña son erróneas. Intenta nuevamente",
+        errorMessage: "El usuario no está registado.",
       });
     }
 
@@ -86,7 +92,7 @@ exports.loginUserForm = async (req, res) => {
     return res.redirect("/user/profile");
   } catch (error) {
     // 6. EN CASO DE FALLOS, REALIZAMOS MANEJO DE ERRORES (ERROR HANDLING)
-    console.log(error);
+    console.log(`Hubo un error en hacer login: ${error}`);
   }
 };
 

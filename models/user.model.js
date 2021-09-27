@@ -5,22 +5,34 @@ const mongoose = require("mongoose");
 //2 -- Schema
 
 const userSchema = mongoose.Schema({
-  username: {
+  nickname: {
     type: String,
-    required: [true, "Nombre de usuario requerido"],
+    required: [true, "The username is required"],
+  },
+  name: {
+    type: String,
+    required: [true, "The name is required"],
+  },
+  lastname: {
+    type: String,
+    required: [true, "The lastname is required"],
   },
   email: {
     type: String,
-    required: [true, "El e-mail es requerido"],
+    required: [true, "The email is required"],
     unique: true,
     lowercase: true,
     trim: true,
   },
   passwordHash: {
     type: String,
-    required: [true, "El password es requerido"],
+    required: [true, "The password is required"],
   },
-  typeUser: ["Admin", "Vendedor", "Comprador"],
+  category: {
+    type: String,
+    enum: ["admin", "Creador", "Consumidor"],
+    required: [true, "The category is required"],
+  },
   posts: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -28,3 +40,11 @@ const userSchema = mongoose.Schema({
     },
   ],
 });
+
+//3 -- Modelo
+
+const User = mongoose.model("User", userSchema);
+
+//4 -- Exportación
+
+module.exports = User;

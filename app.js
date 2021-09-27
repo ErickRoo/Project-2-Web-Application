@@ -21,6 +21,9 @@ app.set("view engine", "hbs");
 
 app.use(express.urlencoded({ extended: true }));
 
+// f. ACTIVAR GESTIÓN DE SESIONES
+require("./config/session.config")(app);
+
 // g. ESTABLECER EL VALOR DE REQ.SESSION EN LAYOUT.HBS, A TRAVÉS DEL USO DE RES.LOCALS
 // Layout Middleware
 // app.use((req, res, next) => {
@@ -33,8 +36,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", require("./routes/index"));
 app.use("/beer", require("./routes/beer"));
-// app.use("/auth", require("./routes/auth"));
-// app.use("/user", require("./routes/user"));
+app.use("/auth", require("./routes/auth"));
+app.use("/user", require("./routes/user"));
 
 require("./error-handling/error")(app);
 

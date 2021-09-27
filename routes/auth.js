@@ -13,15 +13,15 @@ router.get("/signup", routeGuards.isLoggedOut, authController.createUser);
 // http://localhost:3000/auth/signup
 router.post("/signup", authController.createUserForm);
 
-// GET - Crear un formulario para iniciar sesión
-// http://localhost:3000/auth/login
+// // GET - Crear un formulario para iniciar sesión
+// // http://localhost:3000/auth/login
 router.get("/login", routeGuards.isLoggedOut, authController.loginUser);
 
-// POST - Enviar datos del formulario de iniciar sesión al servidor
-// http://localhost:3000/auth/login
+// // POST - Enviar datos del formulario de iniciar sesión al servidor
+// // http://localhost:3000/auth/login
 router.post("/login", authController.loginUserForm);
 
-// POST - CERRAR SESIÓN
+// // POST - CERRAR SESIÓN
 router.post("/logout", authController.logoutUser);
 
 module.exports = router;
