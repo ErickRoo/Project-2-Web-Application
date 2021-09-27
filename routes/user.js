@@ -7,6 +7,10 @@ const routeGuards = require("./../middlewares/route-guard");
 
 // GET - Obtener perfil del usuario
 
-router.get("/profile", routeGuards.isLoggedIn, userController.createProfile);
+router.get(
+  "/profile/:category/:id",
+  routeGuards.isLoggedIn,
+  userController.createProfile
+);
 
 module.exports = router;

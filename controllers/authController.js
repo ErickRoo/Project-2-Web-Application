@@ -88,8 +88,9 @@ exports.loginUserForm = async (req, res) => {
 
     // console.log(req)
     req.session.currentUser = foundUser;
+    // console.log(foundUser.id);
 
-    return res.redirect("/user/profile");
+    return res.redirect(`/user/profile/${foundUser.category}/${foundUser.id}`);
   } catch (error) {
     // 6. EN CASO DE FALLOS, REALIZAMOS MANEJO DE ERRORES (ERROR HANDLING)
     console.log(`Hubo un error en hacer login: ${error}`);

@@ -2,11 +2,12 @@
 
 const router = require("express").Router();
 
+const indexController = require("../controllers/indexController");
 /* Este es el HOME */
 
-router.get("/", (req, res) => {
-  res.render("index");
-});
+router.get("/", indexController.home);
+
+router.get("/cervezas", indexController.beerList);
 
 //Exportación
 

@@ -26,11 +26,11 @@ require("./config/session.config")(app);
 
 // g. ESTABLECER EL VALOR DE REQ.SESSION EN LAYOUT.HBS, A TRAVÉS DEL USO DE RES.LOCALS
 // Layout Middleware
-// app.use((req, res, next) => {
-//   res.locals.currentUser = req.session.currentUser;
+app.use((req, res, next) => {
+  res.locals.currentUser = req.session.currentUser;
 
-//   next();
-// });
+  next();
+});
 
 // 3 -- Rutas
 
