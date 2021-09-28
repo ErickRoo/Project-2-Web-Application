@@ -11,11 +11,6 @@ const postSchema = mongoose.Schema(
     title: String,
     content: String,
     imageUrl: String,
-    comments: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-      },
-    ],
   },
   {
     timestamps: true,

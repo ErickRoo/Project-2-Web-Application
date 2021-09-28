@@ -19,4 +19,12 @@ router.get(
   userController.mybeers
 );
 
+router.get(
+  "/profile/:category/:id/editproduct",
+  routeGuards.isLoggedIn,
+  userController.editBeer
+);
+
+//Hacer post para editar producto
+
 module.exports = router;

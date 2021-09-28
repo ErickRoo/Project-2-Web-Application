@@ -6,7 +6,8 @@ const mongoose = require("mongoose");
 const beerSchema = mongoose.Schema(
   {
     author: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId, //Al ser llamado con el populate() trae new ObjectId("6152c4fd34d1abb108e848eb")
+      ref: "User", //Con esto le entregamos como tal toda la inforación sobre el Id anterior
     },
     name: {
       type: String,

@@ -22,3 +22,6 @@ const storage = new CloudinaryStorage({
 
 //                     storage: storage
 module.exports = multer({ storage });
+/*
+ ******Si hay mas de un proposito al cual se suban imagenes, considerar que en el formulario->input->name deberá llevar nombres diferentes.
+ */

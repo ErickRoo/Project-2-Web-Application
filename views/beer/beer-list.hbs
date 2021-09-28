@@ -1,9 +1,11 @@
-Aqui aparecen la lista de cervezas
-
-<div>
-  {{#each listBeers}}
-  <div>
-    {{>beerpartial this}}
+<div class="container-lg mt-3 mb-5">
+  <div class="row">
+    {{#each listBeers}}
+    <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
+      <div class="card">
+        {{>beerpartial this}}
+      </div>
+    </div>
+    {{/each}}
   </div>
-  {{/each}}
 </div>

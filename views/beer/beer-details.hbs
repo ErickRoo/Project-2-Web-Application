@@ -1,7 +1,6 @@
-Aqui se detalla la cheve y se ven los comentarios.
-
 <div>
   <div>
+    <img src="{{imageUrl}}" alt="{{imageUrl}}">
     <h5>{{name}}</h5>
     <p>{{style}}</p>
     <p>{{abv}}</p>
@@ -9,7 +8,20 @@ Aqui se detalla la cheve y se ven los comentarios.
     <p>{{description}}</p>
     <p>{{pairing}}</p>
   </div>
-  <form action="/beers/commentaries/{{id}}" method="POST">
-    <textarea name="" id="" cols="30" rows="10"></textarea>
+  <form action="/beers/commentaries/{{id}}" method="POST" enctype="multipart/form-data">
+    <label for="label-title">Titulo</label>
+    <input type="text" name="title" id="label-title">
+
+    <label for="label-content">Cuéntanos</label>
+    <textarea name="content" id="label-content" cols="30" rows="10"></textarea>
+
+    <div class="form-group">
+      <label>Image:
+        <input type="file" name="imageUrlPost" class="form-control-file" />
+      </label>
+    </div>
+
+    <button type="submit">¡Comenta!</button>
+
   </form>
 </div>

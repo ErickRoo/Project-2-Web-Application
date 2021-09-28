@@ -1,9 +1,7 @@
 <div>
-  <p>{{currentUser.category}}</p>
   <div>
     {{#each myListBeers}}
     {{> mybeerspartial this}}
-    <a href="/user/profile/{{currentUser.category}}/{{currentUser._id}}/edit">Editar producto</a>
     {{/each}}
   </div>
 </div>
