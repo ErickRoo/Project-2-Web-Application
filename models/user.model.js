@@ -12,11 +12,9 @@ const userSchema = mongoose.Schema(
     },
     name: {
       type: String,
-      required: [true, "The name is required"],
     },
     lastname: {
       type: String,
-      required: [true, "The lastname is required"],
     },
     email: {
       type: String,
@@ -34,10 +32,11 @@ const userSchema = mongoose.Schema(
       enum: ["admin", "Creador", "Consumidor"],
       required: [true, "The category is required"],
     },
+    imageUrl: String,
     posts: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "post.model",
+        ref: "Post",
       },
     ],
   },

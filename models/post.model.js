@@ -6,10 +6,11 @@ const postSchema = mongoose.Schema(
   {
     author: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "user.model",
+      ref: "User",
     },
     title: String,
     content: String,
+    imageUrl: String,
     comments: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -20,3 +21,7 @@ const postSchema = mongoose.Schema(
     timestamps: true,
   }
 );
+
+const Post = mongoose.model("Post", postSchema);
+
+module.exports = Post;

@@ -5,6 +5,9 @@ const mongoose = require("mongoose");
 //2 -- Schema
 const beerSchema = mongoose.Schema(
   {
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+    },
     name: {
       type: String,
       required: [true, "The beer's name is required"],
@@ -27,10 +30,13 @@ const beerSchema = mongoose.Schema(
     pairing: {
       type: String,
     },
-    comments: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "user.model",
-    },
+    imageUrl: String,
+    comments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Post",
+      },
+    ],
   },
   {
     timestamps: true,

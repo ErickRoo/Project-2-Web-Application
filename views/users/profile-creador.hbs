@@ -1,1 +1,7 @@
-Perfil del usuario Creador que inicio sesión.
+<div>
+  <div class="person-img">
+    <img src="{{currentUser.imageUrl}}" alt="{{currentUser.imageUrl}}" class="img-fluid rounded-circle img-profile">
+  </div>
+  <a href="/user/profile/{{currentUser.category}}/{{currentUser._id}}/mybeers">Ir a mi lista de cervezas</a>
+  <a href="/beer/create">Sube tu cerveza</a>
+</div>

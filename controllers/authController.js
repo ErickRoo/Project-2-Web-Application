@@ -23,7 +23,7 @@ exports.createUserForm = async (req, res) => {
     const hashedPassword = await bcryptjs.hash(password, salt);
 
     // 3. INSERTAR EL USUARIO, CON SU PASSWORD ENCRIPTADO, EN BASE DE DATOS
-
+    // console.log(req.file.path);//ruta de cloudinary con img cargada
     const newUser = await User.create({
       nickname,
       name,
@@ -31,9 +31,10 @@ exports.createUserForm = async (req, res) => {
       email,
       passwordHash: hashedPassword,
       category,
+      imageUrl: req.file.path,
     });
 
-    console.log(newUser);
+    // console.log(newUser);
 
     // 4. RETORNAR UNA PÁGINA O UNA REDIRECCIÓN PARA QUE EL USUARIO SEPA QUE LO HIZO BIEN
     // res.alert("Usuario creado");

@@ -1,5 +1,5 @@
 <div>
-  <form action="/auth/signup" method="POST">
+  <form action="/auth/signup" method="POST" enctype="multipart/form-data">
     <label for="label-nickname">Apodo</label>
     <input type="text" name="nickname" id="label-nickname">
 
@@ -22,6 +22,12 @@
         <option value="Consumidor">Consumidor</option>
       </select>
     </label>
+
+    <div class="form-group">
+      <label>Image:
+        <input type="file" name="imageUrlProfile" class="form-control-file" />
+      </label>
+    </div>
 
     <button type="submit">Crear</button>
   </form>

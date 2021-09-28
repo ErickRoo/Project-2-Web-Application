@@ -1,5 +1,5 @@
 <div>
-  <form action="/beer/create" method="POST">
+  <form action="/beer/create" method="POST" enctype="multipart/form-data">
     <label for="label-name">Nombre</label>
     <input type="text" name="name" id="label-name">
 
@@ -7,16 +7,22 @@
     <input type="text" name="style" id="label-style">
 
     <label for="label-abv">ABV</label>
-    <input type="number" name="abv" id="label-abv">
+    <input type="number" name="abv" id="label-abv" step="0.1">
 
     <label for="label-ibu">IBU</label>
-    <input type="number" name="ibu" id="label-ibu">
+    <input type="number" name="ibu" id="label-ibu" step="0.01">
 
     <label for="label-description">Descripción</label>
     <textarea type="text" name="description" id="label-description"></textarea>
 
     <label for="label-pairing">Maridaje</label>
     <textarea type="text" name="pairing" id="label-pairing"></textarea>
+
+    <div class="form-group">
+      <label>Image:
+        <input type="file" name="imageUrlBeer" class="form-control-file" />
+      </label>
+    </div>
 
     <button type="submit">¡Crear cheve!</button>
   </form>

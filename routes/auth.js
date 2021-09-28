@@ -5,13 +5,19 @@ const authController = require("./../controllers/authController");
 
 const routeGuards = require("./../middlewares/route-guard");
 
+const fileUploader = require("../config/cloudinary.config");
+
 // GET - Mostrar el formulario de creación del usuario
 // http://localhost:3000/auth/signup
 router.get("/signup", routeGuards.isLoggedOut, authController.createUser);
 
 // POST - Enviar datos del formulario al servidor
 // http://localhost:3000/auth/signup
-router.post("/signup", authController.createUserForm);
+router.post(
+  "/signup",
+  fileUploader.single("imageUrlProfile"),
+  authController.createUserForm
+);
 
 // // GET - Crear un formulario para iniciar sesión
 // // http://localhost:3000/auth/login

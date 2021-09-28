@@ -13,4 +13,10 @@ router.get(
   userController.createProfile
 );
 
+router.get(
+  "/profile/:category/:id/mybeers",
+  routeGuards.isLoggedIn,
+  userController.mybeers
+);
+
 module.exports = router;

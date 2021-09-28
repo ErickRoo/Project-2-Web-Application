@@ -7,6 +7,7 @@
 const express = require("express");
 const app = express();
 const hbs = require("hbs");
+const path = require("path");
 const connectingDB = require("./db/db");
 
 //2 -- Middlewares
@@ -19,6 +20,8 @@ app.use(express.static(__dirname + "/public"));
 
 app.set("view engine", "hbs");
 
+hbs.registerPartials(path.join(__dirname, "/views/partials"));
+
 app.use(express.urlencoded({ extended: true }));
 
 // f. ACTIVAR GESTIÓN DE SESIONES
@@ -28,7 +31,7 @@ require("./config/session.config")(app);
 // Layout Middleware
 app.use((req, res, next) => {
   res.locals.currentUser = req.session.currentUser;
-
+  // console.log(req.session.currentUser);
   next();
 });
 

@@ -3,8 +3,16 @@ const router = express.Router();
 
 const beerController = require("../controllers/beerController");
 
-router.get("/create", beerController.getCreate);
+const routeGuards = require("./../middlewares/route-guard");
 
-router.post("/create", beerController.postCreate);
+const fileUploader = require("../config/cloudinary.config");
+
+router.get("/create", routeGuards.isLoggedIn, beerController.getCreate);
+
+router.post(
+  "/create",
+  fileUploader.single("imageUrlBeer"),
+  beerController.postCreate
+);
 
 module.exports = router;

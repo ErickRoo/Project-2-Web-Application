@@ -7,7 +7,11 @@ const indexController = require("../controllers/indexController");
 
 router.get("/", indexController.home);
 
-router.get("/cervezas", indexController.beerList);
+router.get("/beers", indexController.beerList);
+
+router.get("/beers/commentaries/:id", indexController.beerDetails);
+
+router.post("/beers/commentaries/:id", indexController.beerComment);
 
 //Exportación
 
