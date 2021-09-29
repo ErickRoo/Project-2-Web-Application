@@ -14,3 +14,38 @@ html, body {
   min-height: 300px;
   object-fit: contain;
 }
+.beer-box {
+  box-shadow:  0 0 15px rgba(0, 0, 0, 0.3);
+}
+#beer-modal .modal-img{
+  max-height: 650px;
+  min-height: 650px;
+}
+.modal-body {
+  display: flex;
+  justify-content: center;
+}
+.img-beer-details{
+  max-height: 550px;
+  object-fit: contain;
+}
+.img-comment-profile {
+  max-width: 50px;
+  margin: 0 1rem 0;
+}
+.img-comment-post {
+  max-height: 150px;
+  object-fit: contain;
+}
+.div-comment {
+  height: 180px;
+}
+.modal-img-comment{
+  max-height: 550px;
+  object-fit: contain;
+}
+/* .bg-signup {
+  background-image: url("../images/signup.png");
+  background-size: cover;
+  background-attachment: fixed;
+} */

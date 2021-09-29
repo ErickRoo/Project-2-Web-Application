@@ -23,7 +23,15 @@ exports.beerList = async (req, res) => {
 
 exports.beerDetails = async (req, res) => {
   try {
-    const beerDetails = await Beer.findById(req.params.id);
+    const beerDetails = await Beer.findById(req.params.id)
+      .populate("author comments")
+      .populate({
+        path: "comments",
+        populate: {
+          path: "author",
+          model: "User",
+        },
+      });
     // console.log(beerDetails);
     return res.render("beer/beer-details", beerDetails);
   } catch (error) {

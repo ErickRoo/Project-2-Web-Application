@@ -1,11 +1,28 @@
-<div class="container-lg mt-3 mb-5">
-  <div class="row">
-    {{#each listBeers}}
-    <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
-      <div class="card">
-        {{>beerpartial this}}
+<section class="gallery min-vh-100">
+  <div class="container-lg mt-3 mb-5">
+    <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+      {{#each listBeers}}
+      <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
+        <div class="card beer-box">
+          {{>beerpartial this}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="beer-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        {{!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> --}}
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="" alt="modal-img" class="modal-img">
       </div>
     </div>
-    {{/each}}
   </div>
 </div>

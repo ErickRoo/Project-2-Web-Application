@@ -1,27 +1,83 @@
-<div>
-  <div>
-    <img src="{{imageUrl}}" alt="{{imageUrl}}">
-    <h5>{{name}}</h5>
-    <p>{{style}}</p>
-    <p>{{abv}}</p>
-    <p>{{ibu}}</p>
-    <p>{{description}}</p>
-    <p>{{pairing}}</p>
-  </div>
-  <form action="/beers/commentaries/{{id}}" method="POST" enctype="multipart/form-data">
-    <label for="label-title">Titulo</label>
-    <input type="text" name="title" id="label-title">
-
-    <label for="label-content">Cuéntanos</label>
-    <textarea name="content" id="label-content" cols="30" rows="10"></textarea>
-
-    <div class="form-group">
-      <label>Image:
-        <input type="file" name="imageUrlPost" class="form-control-file" />
-      </label>
+<div class="container mt-4">
+  <h2 class="display-4 mb-4">
+    <span class="badge bg-primary">{{style}}</span> {{name}}
+    <small class=" text-muted">By <b>{{author.nickname}}</b></small>
+  </h2>
+  <div class="row">
+    <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-4 mb-xl-0">
+      <img src="{{imageUrl}}" alt="{{imageUrl}}" class="card-img-top img-beer-details">
     </div>
+    <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+      <h3>Descripción</h3>
+      <p>{{description}}</p>
+      <h3>Maridaje</h3>
+      <p>{{pairing}}</p>
+      <h3>ABV</h3>
+      <ul>{{abv}} % </ul>
+      <h3>IBU</h3>
+      <ul>{{ibu}}</ul>
 
-    <button type="submit">¡Comenta!</button>
+      {{#if currentUser}}
+      <h5>Comenta aquí.</h5>
+      <div class="col-12">
+        <form action="/beers/commentaries/{{id}}" method="POST" enctype="multipart/form-data">
+          <label for="label-title" class="form-label">Titula tu post</label>
+          <input type="text" name="title" id="label-title" class="form-control">
+          <label for="label-content" class="form-label">Cuéntanos</label>
+          <textarea name="content" id="label-content" rows="3" class="form-control mb-2"></textarea>
+          <div class="input-group mb-2">
+            <label>Sube tu foto
+              <input type="file" name="imageUrlPost" class="form-control form-control-file"
+                aria-describedby="inputGroupFileAddon04" aria-label="Upload" />
+            </label>
+          </div>
+          <button type="submit" class="btn btn-outline-dark">¡Comenta!</button>
+        </form>
+      </div>
+      {{/if}}
 
-  </form>
+    </div>
+  </div>
+
+  <h3>Comentarios</h3>
+  {{#each comments}}
+  <div class="row div-comment">
+    <div class="col-12 col-xl-3 col-lg-3 col-md-3 col-sm-3 mb-2 mb-xl-0 mt-2">
+      <h5><img src="{{author.imageUrl}}" alt="{{author.imageUrl}}"
+          class="img-fluid rounded-circle img-comment-profile"><span>
+          {{author.nickname}}</span></h5>
+    </div>
+    <div class="col-12 col-xl-9 col-lg-9 col-md-9 col-sm-9 mb-2 mb-xl-0 mt-2">
+      <div class="row">
+        <div class="col-8">
+          <div>
+            <h5>{{title}}</h5>
+          </div>
+          <div>
+            {{content}}
+          </div>
+        </div>
+        <div class="col-4">
+          <img src="{{imageUrl}}" alt="{{imageUrl}}" class="img-fluid img-comment-post">
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  {{/each}}
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="beer-modal-comment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        {{!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> --}}
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="" alt="modal-img-comment" class="modal-img-comment">
+      </div>
+    </div>
+  </div>
 </div>
