@@ -3,7 +3,24 @@ html, body {
   padding: 0;
   font-size: 16px;
 }
-
+.navbar {
+  height: 67px;
+}
+#home-main h1{
+  color: white;
+  font-weight: bold;
+}
+#hero {
+  background-image: url("../images/home.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+.carousel-item img{
+  max-height: 80vh;
+  object-fit: contain;
+}
 .img-profile {
   width: 10rem;
 }
@@ -44,8 +61,119 @@ html, body {
   max-height: 550px;
   object-fit: contain;
 }
-/* .bg-signup {
+.bg-signup {
+  color: white;
   background-image: url("../images/signup.png");
   background-size: cover;
   background-attachment: fixed;
+  height: 100vh;
+}
+.bi-pencil-fill {
+  font-size: 1.5rem;
+  color: white;
+  float: right;
+}
+.col-md-5 {
+  box-shadow: -1px 1px 60px 10px black;
+  background: rgba(0, 0, 0, 0.4);
+}
+.bg-signup {
+  display: flex;
+  align-items: center;
+}
+.sgn-input {
+  color: white;
+  background: transparent;
+}
+.sgn-label {
+  padding-top: 10px;
+}
+.sgn-input option{
+  color: black;
+}
+.sgn-title {
+  font-size: 3rem;
+  text-shadow: -1px 1px  10px black;
+}
+.sgn-ph {
+  font-size: 1.5rem;
+  text-shadow: -1px 1px  10px black;
+}
+.sgn-error {
+  padding: 1.5rem 0 0;
+  color: white;
+  text-shadow: -1px 1px  10px black;
+  font-weight: bold;
+}
+.header {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: black;
+}
+.header video {
+  width: 100%;
+  height: 100%;
+}
+.absolute {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  position: absolute;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  color: white;
+}
+/* .absolute::after {
+  display: block;
+  font-size: 80px;
+  font-weight: 900;
+  color: white;
 } */
+.overlay {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+}
+.login-title {
+  font-size: 4rem;
+  margin-bottom: 10rem;
+}
+.login-label {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.login-box {
+  margin: 0 0 15rem;
+}
+.sgn-input::placeholder {
+  color: white;
+}
+@media screen and (max-width: 1024px) {
+  .login-title {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .login-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .login-box {
+    margin: 0 0 8rem;
+  }
+  .login-label {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .login-box {
+    margin: 0 0 2rem;
+  }
+}

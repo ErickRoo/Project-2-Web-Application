@@ -46,7 +46,7 @@ exports.beerComment = async (req, res) => {
       author: req.session.currentUser,
       title,
       content,
-      imageUrl: req.file.path,
+      imageUrl: req.file?.path,
     });
     const pushCommentUser = await User.findByIdAndUpdate(
       req.session.currentUser,

@@ -10,8 +10,27 @@ exports.createUser = async (req, res) => {
 exports.createUserForm = async (req, res) => {
   try {
     // 1. OBTENER LOS DATOS DEL FORMULARIO
-    const { nickname, name, lastname, email, password, category } = req.body;
+    const {
+      nickname,
+      name,
+      lastname,
+      email,
+      password,
+      category,
+      imageUrl,
+    } = req.body;
 
+    if (
+      nickname === "" ||
+      email === "" ||
+      password === "" ||
+      category === "" ||
+      imageUrl === ""
+    ) {
+      return res.render("auth/signup", {
+        errorMessage: "***** Los campos con asterisco son obligatorios. *****",
+      });
+    }
     // 2. ENCRIPTACIÓN DE LA VARIABLE PASSWORD
 
     // ESTE ES LA BASE DE LA ENCRIPTACION

@@ -1,4 +1,57 @@
-<div>
+<header class="header">
+  <div class="overlay"></div>
+  <div class="absolute">
+    <div class="row login-box">
+      <div class="col-12">
+        <h2 class="login-title">Iniciar sesión</h2>
+      </div>
+      <div class="col-12">
+        <form action="/auth/login" method="POST">
+
+          <div class="row">
+            <div class="col-3">
+              <label class="login-label" for="label-nickname">Email</label>
+            </div>
+            <div class="col-5">
+              <div class="input-group">
+                <input type="email" name="email" placeholder="Correo electrónico" class="form-control sgn-input" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-3">
+              <label class="login-label" for="label-nickname">Password</label>
+            </div>
+            <div class="col-5">
+              <div class="input-group">
+                <input type="password" name="password" placeholder="password" class="form-control sgn-input" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-lg sgn-input btn-outline-light"><b>Iniciar sesión</b></button>
+              </div>
+            </div>
+          </div>
+
+          {{#if errorMessage}}
+          <p style="color: red">{{errorMessage}}</p>
+          {{/if}}
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <video autoplay loop>
+    <source src="/videos/login-video.mp4" type="video/mp4">
+  </video>
+</header>
+
+{{!-- <div>
 
   <h2>Iniciar sesión</h2>
 
@@ -22,4 +75,4 @@
   </form>
 
 
-</div>
+</div> --}}

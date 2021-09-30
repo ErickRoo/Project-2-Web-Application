@@ -2,8 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1 class="text-left">Regístrate maestro cervecero</h1>
-        <p class="text-left">Este será un próspero club en donde los fabricantes, chicos o grandes, de cerveza artesanal
+        <h1 class="text-left sgn-title">Regístrate al mejor foro de cerveza</h1>
+        <p class="text-left sgn-ph">Este será un próspero club en donde los fabricantes, chicos o grandes, de cerveza
+          artesanal
           nos compartiran los detalles de sus productos. ¡Y nosotros podremos comentarlos! </p>
       </div>
       <div class="col-md-5">
@@ -14,13 +15,116 @@
           <div class="col-md-6">
             <i class="bi bi-pencil-fill"></i>
           </div>
+          <hr>
+          <div class="row">
+            <div class="col-12">
+              <form action="/auth/signup" method="POST" enctype="multipart/form-data">
+
+                <div class="row">
+                  <div class="col-auto">
+                    <label class="sgn-label" for="label-nickname">Apodo*</label>
+                  </div>
+                  <div class="col">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text sgn-input" id="basic-addon1">@</span>
+                      <input type="text" name="nickname" id="label-nickname" placeholder="nickname"
+                        class="form-control sgn-input">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-auto">
+                    <label class="sgn-label" for="label-name">Nombre</label>
+                  </div>
+                  <div class="col">
+                    <div class="input-group mb-3">
+                      <input type="text" name="name" id="label-name" placeholder="Nombre"
+                        class="form-control sgn-input">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-auto">
+                    <label class="sgn-label" for="label-lastname">Apellido</label>
+                  </div>
+                  <div class="col">
+                    <div class="input-group mb-3">
+                      <input type="text" name="lastname" id="label-lastname" placeholder="Apellido"
+                        class="form-control sgn-input">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-auto">
+                    <label class="sgn-label" for="label-email">Correo*</label>
+                  </div>
+                  <div class="col">
+                    <div class="input-group mb-3">
+                      <input type="email" name="email" id="label-email" placeholder="Correo electrónico"
+                        class="form-control sgn-input">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-auto">
+                    <label class="sgn-label" for="label-password">Contraseña*</label>
+                  </div>
+                  <div class="col">
+                    <div class="input-group mb-3">
+                      <input type="password" name="password" id="label-password" placeholder="Password"
+                        class="form-control sgn-input">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6">
+                    <label for="label-category">¿Qué eres? *</label>
+                    <select name="category" id="label-category" class="form-select">
+                      <option value=""></option>
+                      <option value="Creador">Creador</option>
+                      <option value="Consumidor">Consumidor</option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <div class="input-group mb-3">
+                      <label>Foto de Perfil: *
+                        <input type="file" name="imageUrlProfile" class="form-control-file" />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <div class="d-grid gap-2">
+                      <button type="submit" class="btn btn-lg sgn-input btn-outline-light"><b>Crear cuenta</b></button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    {{#if errorMessage}}
+                    <p class="sgn-error">{{errorMessage}}</p>
+                    {{/if}}
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div>
+{{!-- <div>
   <form action="/auth/signup" method="POST" enctype="multipart/form-data">
     <label for="label-nickname">Apodo</label>
     <input type="text" name="nickname" id="label-nickname">
@@ -53,4 +157,4 @@
 
     <button type="submit">Crear</button>
   </form>
-</div>
+</div> --}}
