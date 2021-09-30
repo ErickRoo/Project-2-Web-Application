@@ -14,17 +14,25 @@ router.get(
 );
 
 router.get(
-  "/profile/:category/:id/mybeers",
+  "/profile/:category/:idUser/mybeers",
   routeGuards.isLoggedIn,
   userController.mybeers
 );
 
 router.get(
-  "/profile/:category/:id/editproduct",
+  "/profile/:category/:idUser/:idProduct/editproduct",
   routeGuards.isLoggedIn,
-  userController.editBeer
+  userController.editBeerGet
 );
 
-//Hacer post para editar producto
+router.post(
+  "/profile/:category/:idUser/:idProduct/editproduct",
+  userController.editBeerPost
+);
+
+router.post(
+  "/profile/:category/:idUser/:idProduct/delete",
+  userController.deleteBeerPost
+);
 
 module.exports = router;

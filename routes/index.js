@@ -10,7 +10,7 @@ router.get("/", indexController.home);
 
 router.get("/beers", indexController.beerList);
 
-router.get("/beers/commentaries/:id", indexController.beerDetails);
+router.get("/beers/commentaries/:idBeer", indexController.beerDetails);
 
 router.post(
   "/beers/commentaries/:idBeer",

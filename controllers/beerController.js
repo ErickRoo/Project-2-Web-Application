@@ -26,7 +26,7 @@ exports.postCreate = async (req, res) => {
       ibu,
       description,
       pairing,
-      imageUrl: req.file.path,
+      imageUrl: req.file?.path,
     });
     //Poner aviso de registro exitoso
     res.render("beer/create-beer");

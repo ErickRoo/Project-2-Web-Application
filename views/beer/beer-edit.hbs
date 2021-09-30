@@ -1,1 +1,43 @@
-Aqui editaremos la info de la chela.
+<div class="container mt-4">
+  <form action="/user/profile/{{author.category}}/{{author._id}}/{{_id}}/editproduct" method="POST" {{!--
+    enctype="multipart/form-data" --}}>
+    <button type="submit">¡Actualiza la cheve!</button>
+    <h2 class="display-4 mb-4">
+      <span class="badge bg-primary"><input class="form-control sgn-input" type="text" name="style" id="label-style"
+          value="{{style}}"> </input> </span>
+      <input type="text" name="name" id="label-name" value="{{name}}">
+
+      <small class=" text-muted">By <b>{{author.nickname}}</b></small>
+    </h2>
+    <div class="row">
+      <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-4 mb-xl-0">
+        <img src="{{imageUrl}}" alt="{{imageUrl}}" class="card-img-top img-beer-details">
+
+      </div>
+      <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+        <h3>Descripción</h3>
+        <textarea type="text" name="description" id="label-description">{{description}}</textarea>
+
+        <h3>Maridaje</h3>
+        <textarea type="text" name="pairing" id="label-pairing">{{pairing}}</textarea>
+
+        <h3>ABV</h3>
+        <ul>
+          <input type="number" name="abv" id="label-abv" step="0.1" value="{{abv}}"></input>
+          %
+        </ul>
+        <h3>IBU</h3>
+        <ul>
+          <input type="number" name="ibu" id="label-ibu" step="0.01" value="{{ibu}}"> </input>
+        </ul>
+
+        {{!-- <div class="form-group">
+          <label>Imagen:
+            <input type="file" name="imageUrlBeer" class="form-control-file" />
+          </label>
+        </div> --}}
+
+      </div>
+    </div>
+  </form>
+</div>

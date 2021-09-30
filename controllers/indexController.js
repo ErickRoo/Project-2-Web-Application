@@ -23,7 +23,7 @@ exports.beerList = async (req, res) => {
 
 exports.beerDetails = async (req, res) => {
   try {
-    const beerDetails = await Beer.findById(req.params.id)
+    const beerDetails = await Beer.findById(req.params.idBeer)
       .populate("author comments")
       .populate({
         path: "comments",
@@ -32,7 +32,7 @@ exports.beerDetails = async (req, res) => {
           model: "User",
         },
       });
-    console.log(beerDetails);
+    // console.log(beerDetails);
     return res.render("beer/beer-details", beerDetails);
   } catch (error) {
     console.log(`Hubo un error ver detalles de la cerveza: ${error}`);
@@ -41,6 +41,7 @@ exports.beerDetails = async (req, res) => {
 
 exports.beerComment = async (req, res) => {
   const { title, content } = req.body;
+  // console.log(req.params);
   try {
     const newPost = await Post.create({
       author: req.session.currentUser,
@@ -56,13 +57,13 @@ exports.beerComment = async (req, res) => {
       { new: true }
     );
     const pushCommentBeer = await Beer.findByIdAndUpdate(
-      req.params.id,
+      req.params.idBeer,
       {
         $push: { comments: newPost._id },
       },
       { new: true }
     );
-    res.redirect(`/beers/commentaries/${req.params.id}`);
+    res.redirect(`/beers/commentaries/${req.params.idBeer}`);
   } catch (error) {
     console.log(`Hubo un error al comentar la cerveza: ${error}`);
   }

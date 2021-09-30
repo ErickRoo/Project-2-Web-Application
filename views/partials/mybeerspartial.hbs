@@ -1,12 +1,13 @@
-<div class="img-beers">
-</div>
-<div>
-  <img src="{{this.imageUrl}}" alt="{{this.imageUrl}}">
-  <h5>{{this.name}}</h5>
-  <p>{{this.style}}</p>
-  <p>{{this.abv}}</p>
-  <p>{{this.ibu}}</p>
-  <p>{{this.description}}</p>
-  <p>{{this.pairing}}</p>
-  <a href="/user/profile/{{this.author.category}}/{{this._id}}/editproduct">Editar producto</a>
+<img src="{{this.imageUrl}}" alt="{{this.imageUrl}}" class="card-img-top img-beer">
+<div class="card-body text-center">
+
+  <h3 class="card-title h3">{{this.name}}</h3>
+  <div class="card-text">
+    <p>{{this.style}}</p>
+    <a href="/user/profile/{{this.author.category}}/{{this.author._id}}/{{this._id}}/editproduct">Editar</a>
+
+    <form action="/user/profile/{{this.author.category}}/{{this.author._id}}/{{this._id}}/delete" method="POST">
+      <button type="submit">Eliminar cheve</button>
+    </form>
+  </div>
 </div>

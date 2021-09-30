@@ -50,7 +50,7 @@ exports.createUserForm = async (req, res) => {
       email,
       passwordHash: hashedPassword,
       category,
-      imageUrl: req.file.path,
+      imageUrl: req.file?.path,
     });
 
     // console.log(newUser);
