@@ -3,7 +3,6 @@
 const router = require("express").Router();
 
 const indexController = require("../controllers/indexController");
-/* Este es el HOME */
 
 const fileUploader = require("../config/cloudinary.config");
 
@@ -14,11 +13,12 @@ router.get("/beers", indexController.beerList);
 router.get("/beers/commentaries/:id", indexController.beerDetails);
 
 router.post(
-  "/beers/commentaries/:id",
+  "/beers/commentaries/:idBeer",
   fileUploader.single("imageUrlPost"),
   indexController.beerComment
 );
 
+// router.post("/beers/commentaries/:id/delete", )
 //Exportación
 
 module.exports = router;

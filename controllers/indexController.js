@@ -32,7 +32,7 @@ exports.beerDetails = async (req, res) => {
           model: "User",
         },
       });
-    // console.log(beerDetails);
+    console.log(beerDetails);
     return res.render("beer/beer-details", beerDetails);
   } catch (error) {
     console.log(`Hubo un error ver detalles de la cerveza: ${error}`);
@@ -67,3 +67,11 @@ exports.beerComment = async (req, res) => {
     console.log(`Hubo un error al comentar la cerveza: ${error}`);
   }
 };
+
+// exports.deletePost = async (req, res) => {
+//   try{
+//     const deletePost = await
+//   }catch (error) {
+//     console.log(`Hubo un error al borrar el comentario: ${error}`);
+//   }
+// }
