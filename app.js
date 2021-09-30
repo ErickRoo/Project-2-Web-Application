@@ -45,7 +45,7 @@ app.use("/user", require("./routes/user"));
 require("./error-handling/error")(app);
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server listening on port http://localhost:${PORT}`);
+  console.log(`Server listening on port http://localhost:${process.env.PORT}`);
 });
 
 // Exportación de app para archivos ...
