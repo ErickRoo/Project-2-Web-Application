@@ -18,7 +18,6 @@ router.post(
   indexController.beerComment
 );
 
-// router.post("/beers/commentaries/:id/delete", )
 //Exportación
 
 module.exports = router;

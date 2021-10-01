@@ -1,29 +1,112 @@
-<div>
-  <form action="/beer/create" method="POST" enctype="multipart/form-data">
-    <label for="label-name">Nombre</label>
-    <input type="text" name="name" id="label-name">
+<div class="bg-create-beer">
+  <div class="container position-relative">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-center text-white mt-3">La nueva creación</h1>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-12">
+              <form action="/beer/create" method="POST" enctype="multipart/form-data">
 
-    <label for="label-style">Estilo</label>
-    <input type="text" name="style" id="label-style">
+                <div class="row">
+                  <div class="col-auto">
+                    <label class="sgn-label" for="label-name">Nombre</label>
+                  </div>
+                  <div class="col">
+                    <div class="input-group mb-3">
+                      <input type="text" name="name" id="label-name" placeholder="Nombre"
+                        class="form-control sgn-input">
+                    </div>
+                  </div>
+                </div>
 
-    <label for="label-abv">ABV</label>
-    <input type="number" name="abv" id="label-abv" step="0.1">
+                <div class="row">
+                  <div class="col-auto">
+                    <label class="sgn-label" for="label-style">Estilo</label>
+                  </div>
+                  <div class="col">
+                    <div class="input-group mb-3">
+                      <input type="text" name="style" id="label-style" class="form-control sgn-input"
+                        placeholder="Estilo">
+                    </div>
+                  </div>
+                </div>
 
-    <label for="label-ibu">IBU</label>
-    <input type="number" name="ibu" id="label-ibu" step="0.01">
+                <div class="row">
+                  <div class="col-auto">
+                    <label class="sgn-label" for="label-abv">ABV</label>
+                  </div>
+                  <div class="col">
+                    <div class="input-group mb-3">
+                      <input type="number" name="abv" id="label-abv" step="0.1" class="form-control sgn-input"
+                        placeholder="0">
+                    </div>
+                  </div>
+                </div>
 
-    <label for="label-description">Descripción</label>
-    <textarea type="text" name="description" id="label-description"></textarea>
+                <div class="row">
+                  <div class="col-auto">
+                    <label class="sgn-label" for="label-ibu">IBU</label>
+                  </div>
+                  <div class="col">
+                    <div class="input-group mb-3">
+                      <input type="number" name="ibu" id="label-ibu" step="0.01" class="form-control sgn-input"
+                        placeholder="0">
+                    </div>
+                  </div>
+                </div>
 
-    <label for="label-pairing">Maridaje</label>
-    <textarea type="text" name="pairing" id="label-pairing"></textarea>
+                <div class="row">
+                  <div class="col-auto">
+                    <label class="sgn-label" for="label-description">Descripción</label>
+                  </div>
+                  <div class="col">
+                    <div class="input-group mb-3">
+                      <textarea type="text" name="description" id="label-description" class="form-control sgn-input"
+                        placeholder="Escribe aquí"></textarea>
+                    </div>
+                  </div>
+                </div>
 
-    <div class="form-group">
-      <label>Image:
-        <input type="file" name="imageUrlBeer" class="form-control-file" />
-      </label>
+                <div class="row">
+                  <div class="col-auto">
+                    <label class="sgn-label" for="label-pairing">Maridaje</label>
+                  </div>
+                  <div class="col">
+                    <div class="input-group mb-3">
+                      <textarea type="text" name="pairing" id="label-pairing" class="form-control sgn-input"
+                        placeholder="Escribe aquí"></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <div class="input-group mb-3">
+                      <label>Muestra la chela:
+                        <input type="file" name="imageUrlBeer" class="form-control-file" />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <div class="d-grid gap-2">
+                      <button type="submit" class="btn btn-lg btn-outline-light btn-create-beer"><b>¡Crear
+                          cheve!</b></button>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <button type="submit">¡Crear cheve!</button>
-  </form>
+  </div>
 </div>

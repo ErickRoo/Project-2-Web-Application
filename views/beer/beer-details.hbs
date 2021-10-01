@@ -12,10 +12,13 @@
       <p>{{description}}</p>
       <h3>Maridaje</h3>
       <p>{{pairing}}</p>
-      <h3>ABV</h3>
-      <ul>{{abv}} % </ul>
-      <h3>IBU</h3>
-      <ul>{{ibu}}</ul>
+      <div class="col-12 d-flex">
+        <h3 class="mb-3 me-5">ABV <span class="text-muted"><i class="bi bi-arrow-right-circle-fill"></i> {{abv}}
+            %</span>
+        </h3>
+        <h3 class="mb-3 me-5">IBU <span class="text-muted"><i class="bi bi-arrow-right-circle-fill"></i> {{ibu}}</span>
+        </h3>
+      </div>
 
       {{#if currentUser}}
       <h5>Comenta aquí.</h5>

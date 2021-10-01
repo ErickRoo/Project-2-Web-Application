@@ -1,8 +1,12 @@
 <div class="container mt-4">
   <form action="/user/profile/{{author.category}}/{{author._id}}/{{_id}}/editproduct" method="POST" {{!--
     enctype="multipart/form-data" --}}>
-    <button type="submit">¡Actualiza la cheve!</button>
-    <h2 class="display-4 mb-4">
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-success mb-3"><i class="bi bi-pencil-square"></i> ¡Actualiza la
+        cheve!</button>
+    </div>
+
+    <h2 class="display-7 mb-4">
       <span class="badge bg-primary"><input class="form-control sgn-input" type="text" name="style" id="label-style"
           value="{{style}}"> </input> </span>
       <input type="text" name="name" id="label-name" value="{{name}}">
@@ -16,10 +20,11 @@
       </div>
       <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6">
         <h3>Descripción</h3>
-        <textarea type="text" name="description" id="label-description">{{description}}</textarea>
+        <textarea class="form-control mb-2" type="text" name="description"
+          id="label-description">{{description}}</textarea>
 
         <h3>Maridaje</h3>
-        <textarea type="text" name="pairing" id="label-pairing">{{pairing}}</textarea>
+        <textarea class="form-control mb-2" type="text" name="pairing" id="label-pairing">{{pairing}}</textarea>
 
         <h3>ABV</h3>
         <ul>

@@ -4,10 +4,16 @@
   <h3 class="card-title h3">{{this.name}}</h3>
   <div class="card-text">
     <p>{{this.style}}</p>
-    <a href="/user/profile/{{this.author.category}}/{{this.author._id}}/{{this._id}}/editproduct">Editar</a>
+
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="mb-2">
+        <a href="/user/profile/{{this.author.category}}/{{this.author._id}}/{{this._id}}/editproduct"><i
+            class="bi bi-link-45deg"></i> Editar</a>
+      </li>
+    </ul>
 
     <form action="/user/profile/{{this.author.category}}/{{this.author._id}}/{{this._id}}/delete" method="POST">
-      <button type="submit">Eliminar cheve</button>
+      <button class="btn btn-danger" type="submit"><i class="bi bi-trash-fill"></i> Eliminar cheve</button>
     </form>
   </div>
 </div>

@@ -1,7 +1,69 @@
-<div>
-  <div class="person-img">
-    <img src="{{currentUser.imageUrl}}" alt="{{currentUser.imageUrl}}" class="img-fluid rounded-circle img-profile">
+<div class="container ms-0 me-0">
+  <div class="row mt-5">
+    <div class="col-3">
+      <img src="{{currentUser.imageUrl}}" alt="{{currentUser.imageUrl}}" class="mb-3 img-fluid rounded img-profile">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li>
+          <a class="nav-link" href="/user/profile/{{currentUser.category}}/{{currentUser._id}}/mybeers"><i
+              class="bi bi-link-45deg"></i> Ir a mi lista de cervezas</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/beer/create"><i class="bi bi-link-45deg"></i> Sube tu cerveza</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-8">
+
+
+      {{#if currentUser}}
+      <h5>Publica un evento</h5>
+      <div class="col-12">
+        <form action="" method="POST" enctype="multipart/form-data">
+          <label for="label-title" class="form-label">Evento</label>
+          <input type="text" name="title" id="label-title" class="form-control">
+          <label for="label-content" class="form-label">Descripción</label>
+          <textarea name="content" id="label-content" rows="3" class="form-control mb-2"></textarea>
+          <div class="input-group mb-2">
+            <label>Sube tu foto
+              <input type="file" name="imageUrlPost" class="form-control form-control-file"
+                aria-describedby="inputGroupFileAddon04" aria-label="Upload" />
+            </label>
+          </div>
+          <button type="submit" class="btn btn-outline-dark">¡Comenta!</button>
+        </form>
+      </div>
+      {{/if}}
+
+      <h3>Eventos</h3>
+      {{#each comments}}
+      <div class="row div-comment">
+        <div class="col-12 col-xl-3 col-lg-3 col-md-3 col-sm-3 mb-2 mb-xl-0 mt-2">
+          <h5><img src="{{author.imageUrl}}" alt="{{author.imageUrl}}"
+              class="img-fluid rounded-circle img-comment-profile"><span>
+              {{author.nickname}}</span></h5>
+          <form action="">
+            <button>Borrar comentario</button>
+          </form>
+        </div>
+        <div class="col-12 col-xl-9 col-lg-9 col-md-9 col-sm-9 mb-2 mb-xl-0 mt-2">
+          <div class="row">
+            <div class="col-8">
+              <div>
+                <h5>{{title}}</h5>
+              </div>
+              <div>
+                {{content}}
+              </div>
+            </div>
+            <div class="col-4">
+              <img src="{{imageUrl}}" alt="{{imageUrl}}" class="img-fluid img-comment-post">
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      {{/each}}
+    </div>
   </div>
-  <a href="/user/profile/{{currentUser.category}}/{{currentUser._id}}/mybeers">Ir a mi lista de cervezas</a>
-  <a href="/beer/create">Sube tu cerveza</a>
 </div>
