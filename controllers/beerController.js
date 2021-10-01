@@ -18,6 +18,11 @@ exports.postCreate = async (req, res) => {
     // if (req.file.path == undefined) {
     //   req.file.path = "../public/images/defaultBeer.png";
     // }
+    if (name === "" || style === "" || abv < 0 || ibu < 0) {
+      return res.render("beer/create-beer", {
+        errorMessage: "***** EY! Andas en tus cinco??? No cargaste datos *****",
+      });
+    }
     const newBeer = await Beer.create({
       author: req.session.currentUser._id,
       name,
